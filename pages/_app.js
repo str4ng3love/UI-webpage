@@ -1,10 +1,16 @@
 import Layout from '../components/Layout'
+import {LangWrapper} from '../context/state'
 import '../styles/globals.css'
+
+
+
 function MyApp({ Component, pageProps }) {
   return(
-    <Layout>
-      <Component {...pageProps} />
+    <LangWrapper>
+        <Layout>
+        <Component {...pageProps} />
     </Layout>
+      </LangWrapper>
   ) }
 
 export default MyApp

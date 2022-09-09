@@ -1,5 +1,6 @@
 import Meta from "./Meta"
 import Header from '../components/Header'
+import Footer from "./Footer"
 import stylesLayout from '../styles/Layout.module.css'
 
 const Layout = ({children}) => {
@@ -9,8 +10,9 @@ const Layout = ({children}) => {
     <Header />
       <div className={stylesLayout.container}>
         {children}
+       
       </div> 
-    
+    <Footer />
     </>
   )
 }

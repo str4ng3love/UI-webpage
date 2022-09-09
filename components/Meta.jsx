@@ -16,9 +16,9 @@ const Meta = ({title, keywords, desc}) => {
 }
 
 Meta.defaultProps = {
-  title: `Useless Idea - Eve Online Corporation`,
-  keywords: ``,
-  desc: ``,
+  title: `Useless Idea - Korporacja Eve Online`,
+  desc: 'Strona domowa korporacji EVE ONLINE Useless Idea',
+  keywords: 'eve online, Useless Idea, Polska, polska korporacja, Discord, Pochven, PvP, początkujący'
 }
 export default Meta
 

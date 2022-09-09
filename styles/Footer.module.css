@@ -1,0 +1,47 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 -0.1rem 12rem 0.2rem var(--uiColor);
+
+}
+.footerLinks {
+    display: flex;
+    align-items: center;
+}
+.footerLinks ul li {
+    padding: 0.1rem;
+}
+.footerLinks ul li a{
+    padding: 0.2rem;
+}
+.footerLinks ul li a:hover {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+}
+.footerContainer {
+
+    background-color: rgb(0, 0, 0);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+.nextspan {
+    white-space: break-spaces;
+    font-weight: bold;
+    font-size: 1.2rem;
+
+}
+.nextspan a {
+    padding: 0.2rem;
+    display: flex;
+    font-size: 0.8rem;
+}
+.tm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}

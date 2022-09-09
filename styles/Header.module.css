@@ -1,8 +1,8 @@
 .nav {
     position: sticky;
     background-color: rgb(0, 0, 0);
-    border-bottom: white 1px solid;
-    box-shadow: 0 1rem 12rem 0.2rem var(--uiColor)
+    border-bottom: rgba(255, 255, 255, 0.5) 1px  solid;
+    box-shadow: 0 0.1rem 12rem 0.2rem var(--uiColor)
 }
 .nav ul {
     display: flex;
@@ -15,7 +15,7 @@
     display: flex;
     flex-direction: column;
     padding: 0.5rem;
-    transition: color 0.5s ease-out, background-color ease-out 0.5s, box-shadow ease-out 0.5s;
+    transition: color 0.5s ease-out, background-color ease-out 0.5s, box-shadow ease-out 0.5s ;
 }
 .language:hover {
     background-color: white;
@@ -32,7 +32,7 @@
     background-color: white;
     color: black;
     top:3.5rem;
-    transform: translateX(-0.75rem);
+    transform: translateX(-1rem);
     position: absolute;
     display: none;
     border-radius: 5px;
@@ -42,6 +42,7 @@
     padding: 1rem;
     text-align: center;
     border-radius: 5px;
+    font-family: Orbitron;
 }
 .flag:hover {
     background-color: black;
