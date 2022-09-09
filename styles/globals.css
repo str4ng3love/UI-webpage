@@ -1,20 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+:root {
+  --uiColor: rgb(251,179,60);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Abel, Orbitron, sans-serif;
+  font-size: 16px;
 }
-
 a {
   color: inherit;
+  font-family: Orbitron;
   text-decoration: none;
 }
-
-* {
-  box-sizing: border-box;
+li {
+  list-style: none;
 }
-
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
