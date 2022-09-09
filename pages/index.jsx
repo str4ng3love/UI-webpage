@@ -7,10 +7,14 @@ export default function Home() {
   const {lang} = useContext(LangContext)
   return (
   <>
+    <div className={stylesHome.landing}>
+
+    </div>
   {lang===`PL`?
     <>
       <Meta title='Useless Idea - Korporacja Eve Onlnie | Głowna'/>
       <h1 className={stylesHome.heading}>Witaj na stronie korporacji Useless Idea</h1>
+
     </> 
   :
     <>

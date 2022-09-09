@@ -2,13 +2,15 @@
     position: sticky;
     background-color: rgb(0, 0, 0);
     border-bottom: rgba(255, 255, 255, 0.5) 1px  solid;
-    box-shadow: 0 0.1rem 12rem 0.2rem var(--uiColor)
+    box-shadow: 0 0.1rem 12rem 0.2rem var(--uiColor);
 }
 .nav ul {
     display: flex;
+    margin: 0 auto;
     justify-content: space-evenly;
     align-items: center;
     padding: 1rem;
+    width: 75%;
 }
 .language { 
     border-radius: 5px;
@@ -53,3 +55,9 @@
 }
 
 
+@media screen and (max-width: 1200px) {
+    .nav ul {
+        margin: 0;
+        width: auto;
+    }
+}
