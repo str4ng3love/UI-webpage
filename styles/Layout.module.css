@@ -1,10 +1,21 @@
 .container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.895);
     min-height: calc(100vh - 11.56rem);
     width: 75%;
     margin: 0 auto;
 }
+.bg {
+    background-image: url('../public/images/pochven-conduit.png');  
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: background-size 1s ease;
+}
+
+
 @media screen and (max-width: 800px) {
     .container {
         margin: 0;
