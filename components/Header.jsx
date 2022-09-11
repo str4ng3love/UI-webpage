@@ -17,8 +17,8 @@ const Header = () => {
     <>
         <nav className={stylesHeader.nav}>
             <ul>
-                <NavLI dest="/" desc="Discord" />
-                <NavLI dest="/" desc={lang==='PL'? 'O nas': 'About'} />
+                <NavLI external="https://discord.gg/DdXjK6v" desc="Discord" />
+                <NavLI dest="/About" desc={lang==='PL'? 'O nas': 'About'} />
                 <NavLI dest='/' desc={lang==='PL'? 'Główna': 'Home'}  />
                 <NavLI external="https://zkillboard.com/corporation/98067874/" desc='zKillboard' />
               

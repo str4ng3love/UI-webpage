@@ -16,13 +16,17 @@ const Footer = () => {
         {lang==='PL'?
         <div className={stylesFooter.Container}>
             <div className={stylesFooter.tm}>
-                <span className={stylesFooter.nextspan}><a href="https://nextjs.org"> Built with <Image height={15} width={90} src={next}/></a></span>
-                <span className={stylesFooter.nextspan}><a href="https://vercel.com"> Powered by <Image height={15} width={90} src={vercel}/></a></span>
+                <span className={stylesFooter.nextspan}>
+                    <a href="https://nextjs.org">Built with <Image height={15} width={90} src={next}/></a>
+                </span>
+                <span className={stylesFooter.nextspan}>
+                    <a href="https://vercel.com">Powered by <Image height={15} width={90} src={vercel}/></a>
+                </span>
             </div>
             <div className={stylesFooter.Links}>
                 <ul>
                     <li>
-                        <Link href="/">Discord</Link>
+                        <a href="https://discord.gg/DdXjK6v">Discord</a>
                     </li>
                     <li>
                         <Link href="/">O nas</Link>
@@ -48,17 +52,17 @@ const Footer = () => {
         <div className={stylesFooter.Container}>
               <div className={stylesFooter.tm}> 
                 <span className={stylesFooter.nextspan}>
-                    <a href="https://nextjs.org">Built with <Image height={20} width={120} src={next}/></a>
+                    <a href="https://nextjs.org">Built with <Image height={15} width={90} src={next}/></a>
                 </span>
                 <span className={stylesFooter.nextspan}>
-                    <a href="https://vercel.com"> Powered by <Image height={20} width={120} src={vercel}/></a>
+                    <a href="https://vercel.com">Powered by <Image height={15} width={90} src={vercel}/></a>
                 </span>
             </div>
 
             <div className={stylesFooter.Links}>
                 <ul>
                     <li>
-                        <Link href="/">Discord</Link>
+                        <a href="https://discord.gg/DdXjK6v">Discord</a>
                     </li>
                     <li>
                         <Link href="/">About</Link>
