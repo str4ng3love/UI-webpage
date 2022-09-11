@@ -7,9 +7,9 @@ export default function Home() {
   const {lang} = useContext(LangContext)
   return (
   <>
-    <div className={stylesHome.landing} >
-
-    </div>
+  <div className={stylesHome.landing}>
+  
+  </div>
   {lang===`PL`?
     <>
       <Meta title='Useless Idea - Korporacja Eve Onlnie | Głowna'/>
