@@ -53,6 +53,7 @@
 }
 
 .arrow svg {
+    color: white;
    opacity: 0; 
 }
 #ar1 {
