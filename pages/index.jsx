@@ -7,7 +7,7 @@ export default function Home() {
   const {lang} = useContext(LangContext)
   return (
   <>
-    <div className={stylesHome.landing}>
+    <div className={stylesHome.landing} >
 
     </div>
   {lang===`PL`?

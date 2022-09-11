@@ -49,8 +49,7 @@
 }
 .arrow:hover {
     cursor: pointer;
-    animation: arrowPulse infinite 1.5s ease;
-
+    animation: arrowPulse infinite 1s ease;
 }
 
 .arrow svg {
@@ -58,15 +57,15 @@
 }
 #ar1 {
     transform: translateX(-300%);
-    animation: arrowShuffleAr1 2s infinite ease;
+    animation: arrowShuffleAr1 3s infinite ease;
 }
 #ar2{
     transform: translateX(-300%); 
-    animation: arrowShuffleAr2 2s infinite ease;
+    animation: arrowShuffleAr2 3s infinite ease;
 }
 #ar3{
     transform: translateX(-300%);
-    animation: arrowShuffleAr3 2s infinite ease;
+    animation: arrowShuffleAr3 3s infinite ease;
 }
 
 @keyframes arrowShuffleAr1 {
