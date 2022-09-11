@@ -1,14 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 :root {
   --uiColor: rgb(251, 178, 60);
-  --uiColorDimmed: rgb(251, 178, 60, 0.5);
+  --uiColorDimmed: rgba(251, 178, 60, 0.500);
   --secondaryColor: rgba(255, 0, 0, 0.250);
   --boxShadow:  0rem 0rem 2rem var(--uiColorDimmed);
+  --footerHeight: 4.5rem;
+  --headerHeight: 4.5rem;
 }
 * {
   box-sizing: border-box;
+  -moz-box-sizing: border-box;
   margin: 0;
 }
+
 html,
 body {
   padding: 0;

@@ -17,13 +17,7 @@ const Layout = ({children}) => {
 
     </div>
     <Footer />
-    <Script id="resize-bg-onScroll"
-    strategy="lazyOnload"
-    dangerouslySetInnerHTML={{
-      __html: `
-        
-      `
-    }}   />
+ 
     </>
   )
 }

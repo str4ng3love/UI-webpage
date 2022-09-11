@@ -1,11 +1,10 @@
 .container {
-
     display: flex;
     flex-direction: column;
     background-color: rgba(0, 0, 0, 0.895);
-    min-height: calc(100vh - 11.56rem);
     width: 75%;
     margin: 0 auto;
+    height: calc( 100vh - 9rem)
 }
 .bg {
     background-image: url('../public/images/pochven-conduit.png');  

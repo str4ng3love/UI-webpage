@@ -1,7 +1,7 @@
 .nav {
+    height: var(--headerHeight);
     position: sticky;
     background-color: rgb(0, 0, 0);
-    border-bottom: var(--uiColorDimmed) 1px  solid;
     box-shadow:  var(--boxShadow);
 }
 .nav ul {

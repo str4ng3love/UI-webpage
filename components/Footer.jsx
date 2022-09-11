@@ -29,7 +29,7 @@ const Footer = () => {
                         <a href="https://discord.gg/DdXjK6v">Discord</a>
                     </li>
                     <li>
-                        <Link href="/">O nas</Link>
+                        <Link href="/About">O nas</Link>
                     </li>
                     <li>
                         <Link href="/">Główna</Link>
@@ -65,7 +65,7 @@ const Footer = () => {
                         <a href="https://discord.gg/DdXjK6v">Discord</a>
                     </li>
                     <li>
-                        <Link href="/">About</Link>
+                        <Link href="/About">About</Link>
                     </li>
                     <li>
                         <Link href="/">Home</Link>
