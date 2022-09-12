@@ -11,7 +11,7 @@ const NavLI = ({desc, dest, external}) => {
                     : <></>
                     }
                   
-                   { external? <a href={external}>{desc}</a> : <></>}
+                   { external? <a target="_blank" href={external}>{desc}</a> : <></>}
                     <span>Ω</span>
     </li>
   )
