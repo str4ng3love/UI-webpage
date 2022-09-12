@@ -8,7 +8,7 @@ const NavList = () => {
                 <div className={stylesNavList.menu}>
                     <a className={stylesNavList.item} href="https://zkillboard.com/corporation/98067874/" target="_blank" rel="noopener noreferrer">zKillboard</a>
                     <a className={stylesNavList.item} href="https://www.facebook.com/uselessidea.co/" target="_blank" rel="noopener noreferrer">Facebook</a>
-                    <span className={stylesNavList.item}>POS 3</span>
+                    <a className={stylesNavList.item}>POS 3</a>
                 </div>
             </span>
         </li>
