@@ -19,5 +19,7 @@
     font-weight: bold;
 }
 .dummy {
-    height: 100vh;
+
+    margin: 1rem 5rem;
+    text-indent: 5rem;
 }
