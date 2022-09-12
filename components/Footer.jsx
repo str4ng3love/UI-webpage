@@ -52,10 +52,10 @@ const Footer = () => {
         <div className={stylesFooter.Container}>
               <div className={stylesFooter.tm}> 
                 <span className={stylesFooter.nextspan}>
-                    <a href="https://nextjs.org">Built with <Image height={15} width={90} src={next}/></a>
+                    <a target="_blank" href="https://nextjs.org">Built with <Image height={15} width={90} src={next}/></a>
                 </span>
                 <span className={stylesFooter.nextspan}>
-                    <a href="https://vercel.com">Powered by <Image height={15} width={90} src={vercel}/></a>
+                    <a target="_blank" href="https://vercel.com">Powered by <Image height={15} width={90} src={vercel}/></a>
                 </span>
             </div>
 
@@ -72,8 +72,8 @@ const Footer = () => {
                     </li>
                 </ul>
                 <ul>
-                    <li><a href="https://www.facebook.com/uselessidea.co/"><SiFacebook/> Facebook</a></li>
-                    <li><a href="https://zkillboard.com/corporation/98067874/"><Image src={wreck} /> zKillboard</a></li>
+                    <li><a target="_blank" href="https://zkillboard.com/corporation/98067874/"><Image src={wreck} /> zKillboard</a></li>
+                    <li><a target="_blank" href="https://www.facebook.com/uselessidea.co/"><SiFacebook/> Facebook</a></li>
                 </ul>
             </div>
             <span onClick={(e)=>{

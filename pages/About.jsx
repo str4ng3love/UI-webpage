@@ -10,6 +10,7 @@ const lang = useContext(LangContext)
         {lang === `PL`? 
         <>
           <Meta title='Useless Idea | O nas'></Meta>
+          
         </>
         :
         <>
