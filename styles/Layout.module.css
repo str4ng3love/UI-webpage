@@ -4,7 +4,8 @@
     background-color: rgba(0, 0, 0, 0.895);
     width: 75%;
     margin: 0 auto;
-    height: calc( 100vh - calc( var(--footerHeight) + var(--headerHeight)))
+    height: calc( 100vh - calc( var(--footerHeight) + var(--headerHeight)));
+    overflow-y: scroll;
 }
 .bg {
     background-image: url('../public/images/pochven-conduit.png');  
