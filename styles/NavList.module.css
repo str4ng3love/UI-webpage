@@ -1,0 +1,47 @@
+.logo {
+    display: flex;
+    flex-direction: column;
+    font-family: Orbitron;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    color: white;
+    padding: 0.5rem;
+    transition: color 0.5s ease-out, background-color ease-out 0.5s, box-shadow ease-out 0.5s ;
+}
+.logo:hover {
+    background-color: white;
+    color: black;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 0 0 2rem 0.1rem rgb(255, 255, 255);
+}
+.logo:hover .menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu {
+    
+    background-color: white;
+    color: black;
+    top:3.5rem;
+    transform: translateX(-1.9rem);
+    position: absolute;
+    display: none;
+    border-radius: 5px;
+}
+.menu .item{
+    margin:0.2rem;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 5px;
+    color: black;
+    font-family: Orbitron;
+}
+.menu .item:hover {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 2rem 0.2rem rgb(255, 255, 255);
+    cursor: pointer;
+}

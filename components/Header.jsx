@@ -1,4 +1,5 @@
 import NavLI from "./NavLI"
+import NavList from "./NavList"
 import { useContext } from "react"
 import { LangContext } from "../context/state"
 import "/node_modules/flag-icons/css/flag-icons.min.css"
@@ -17,12 +18,11 @@ const Header = () => {
     <>
         <nav className={stylesHeader.nav}>
             <ul>
-                <NavLI external="https://discord.gg/DdXjK6v" desc="Discord" />
-                <NavLI dest="/About" desc={lang==='PL'? 'O nas': 'About'} />
                 <NavLI dest='/' desc={lang==='PL'? 'Główna': 'Home'}  />
-                <NavLI external="https://zkillboard.com/corporation/98067874/" desc='zKillboard' />
-              
-                
+                <NavLI dest="/About" desc={lang==='PL'? 'O nas': 'About'} />
+                <NavList>
+                </NavList>
+
                 <li>
                 
                     <span className={stylesHeader.language}><FaLanguage size={30}/>
