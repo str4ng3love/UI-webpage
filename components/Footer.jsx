@@ -52,7 +52,7 @@ const Footer = () => {
         <div className={stylesFooter.Container}>
               <div className={stylesFooter.tm}> 
                 <span className={stylesFooter.nextspan}>
-                    <a  target="_blank" rel="noopener noreferrer"href="https://nextjs.org" target="_blank" rel="noopener noreferrer">Built with <Image height={15} width={90} src={next}/></a>
+                    <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer">Built with <Image height={15} width={90} src={next}/></a>
                 </span>
                 <span className={stylesFooter.nextspan}>
                     <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">Powered by <Image height={15} width={90} src={vercel}/></a>
