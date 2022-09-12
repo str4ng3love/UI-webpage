@@ -21,9 +21,7 @@ export default function Home() {
         <h3 className={stylesHome.headingS} >Polska Korporacja Eve Online</h3>
       </div>
       <div className={stylesHome.dummy} >
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam quas, ipsa laboriosam eum repellat corporis error quasi et aperiam neque ea dolores consequuntur quibusdam ipsam repellendus numquam vero minus dignissimos.
-          </p>
+        
       </div>
     </> 
   :
