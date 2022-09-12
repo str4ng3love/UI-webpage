@@ -2,7 +2,9 @@
     position: absolute;
     bottom: 0;
     width: 100%;
+    height: var(--footerHeight);
     box-shadow: var(--boxShadow);
+    max-height: var(--footerHeight);
 }
 .Links {
     display: flex;
@@ -153,5 +155,11 @@
     75% {
      
         transform: translateY(0%);
+    }
+}
+
+@media (max-width: 850px){
+    .tm {
+        display: none;
     }
 }

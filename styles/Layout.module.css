@@ -4,7 +4,7 @@
     background-color: rgba(0, 0, 0, 0.895);
     width: 75%;
     margin: 0 auto;
-    height: calc( 100vh - 9rem)
+    height: calc( 100vh - calc( var(--footerHeight) + var(--headerHeight)))
 }
 .bg {
     background-image: url('../public/images/pochven-conduit.png');  
@@ -12,13 +12,10 @@
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    transition: background-size 1s ease;
+    background-color: black;
 }
-
-
-@media screen and (max-width: 800px) {
+@media (max-width: 1000px){
     .container {
-        margin: 0;
-        width: auto;
+        width: 100%;
     }
 }

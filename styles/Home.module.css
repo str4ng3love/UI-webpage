@@ -1,8 +1,19 @@
-.heading {
-    margin-top: 5rem;
-    font-size: 2.2rem;
+.headings {
+height: 100%;
+}
+.headingL {
+    padding-top: 5rem;
     text-align: center;
     font-family: Abel;
-    padding: 1rem;
-    
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 6rem;
+}
+.headingS {
+    margin-top: 1rem;
+    text-align: center;
+    font-family: Abel;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 6rem;
 }
