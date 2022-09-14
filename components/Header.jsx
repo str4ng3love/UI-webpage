@@ -1,15 +1,16 @@
 import NavLI from "./NavLI"
 import NavList from "./NavList"
 import { useContext } from "react"
-import { LangContext } from "../context/state"
+import { AppContext } from "../context/state"
 import "/node_modules/flag-icons/css/flag-icons.min.css"
 import { FaLanguage} from 'react-icons/fa'
 import stylesHeader from '../styles/Header.module.css'
 
 
 const Header = () => {
-    const {lang, setLang} = useContext(LangContext)
-
+    const {lang} = useContext(AppContext)
+    const { currentLang, setLang } = lang
+ 
     const selectLang = (e) => {
 
         return setLang(e.target.innerHTML)   
@@ -18,8 +19,8 @@ const Header = () => {
     <>
         <nav className={stylesHeader.nav}>
             <ul>
-                <NavLI dest='/' desc={lang==='PL'? 'Główna': 'Home'}  />
-                <NavLI dest="/About" desc={lang==='PL'? 'O nas': 'About'} />
+                <NavLI dest='/' desc={currentLang==='PL'? 'Główna': 'Home'}  />
+                <NavLI dest="/About" desc={currentLang==='PL'? 'O nas': 'About'} />
                 <NavList>
                 </NavList>
 
@@ -41,3 +42,7 @@ const Header = () => {
 }
 
 export default Header
+
+// export async function getServerSideProps(){
+
+// }

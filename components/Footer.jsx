@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useContext } from 'react'
-import { LangContext } from '../context/state'
+import { AppContext } from '../context/state'
 import stylesFooter from '../styles/Footer.module.css'
 import Image from 'next/image'
 import next from '../public/images/logotypes/next.js/dark-background/nextjs-logotype-dark-background.png'
@@ -10,10 +10,11 @@ import { SiFacebook } from 'react-icons/si'
 import { TbArrowBigTop, TbArrowBigUpLine, TbArrowBigUpLines} from 'react-icons/tb'
 
 const Footer = () => {
-    const {lang} = useContext(LangContext)
+    const {lang} = useContext(AppContext)
+    const {currentLang} = lang
   return (
     <footer className={stylesFooter.footer}>
-        {lang==='PL'?
+        {currentLang==='PL'?
         <div className={stylesFooter.Container}>
             <div className={stylesFooter.tm}>
                 <span className={stylesFooter.nextspan}>
@@ -36,8 +37,8 @@ const Footer = () => {
                     </li>
                 </ul>
                 <ul>
-                    <li><a href="https://www.facebook.com/uselessidea.co/" target="_blank" rel="noopener noreferrer"><SiFacebook/> Facebook</a></li>
                     <li><a href="https://zkillboard.com/corporation/98067874/" target="_blank" rel="noopener noreferrer"><Image src={wreck} /> zKillboard</a></li>
+                    <li><a href="https://www.facebook.com/uselessidea.co/" target="_blank" rel="noopener noreferrer"><SiFacebook/> Facebook</a></li>
                 </ul>
             </div>
             <span onClick={(e)=>{

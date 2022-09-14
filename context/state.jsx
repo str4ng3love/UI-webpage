@@ -5,14 +5,18 @@ import { useState, createContext } from "react"
 
 
 const defaultLang = 'PL'
-const LangContext = createContext(defaultLang)
-const LangWrapper = ({children}) => {
-  const [lang , setLang] = useState(defaultLang)
+const AppContext = createContext(defaultLang)
+const AppWrapper = ({children}) => {
+  const [ currentLang , setLang ] = useState(defaultLang)
+  const [ currentUser, setUser ] = useState()
   return (
-    <LangContext.Provider value={{lang, setLang}}>
+    <AppContext.Provider value={{lang: {currentLang, setLang}, user: {currentUser, setUser}}}>
        {children}
-    </LangContext.Provider>
+    </AppContext.Provider>
   )
 }
 
-export { LangWrapper, LangContext }
+
+
+
+export { AppWrapper, AppContext } 
