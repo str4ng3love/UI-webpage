@@ -1,0 +1,22 @@
+.spinner {
+    padding: 1rem;
+    display: block;
+    color: white;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    border: solid 5px rgba(255, 255, 255, 0.2)
+}
+.spinner {
+    border-left: 5px white solid;
+    animation: spin linear infinite 1s;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
