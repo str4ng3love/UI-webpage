@@ -1,28 +1,33 @@
 import NavLI from "./NavLI"
 import NavList from "./NavList"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { AppContext } from "../context/state"
-import "/node_modules/flag-icons/css/flag-icons.min.css"
 import { FaLanguage} from 'react-icons/fa'
 import stylesHeader from '../styles/Header.module.css'
+import UserMenu from "./UserMenu"
 
 
-const Header = () => {
-    const {lang} = useContext(AppContext)
+const Header = (props) => {
+    const {lang, user} = useContext(AppContext)
     const { currentLang, setLang } = lang
- 
+    const { currentUser, setUser } = user
     const selectLang = (e) => {
 
         return setLang(e.target.innerHTML)   
     }
+
+    useEffect(()=>{
+
+        setUser(props.charName)
+      }, [])
     return (
     <>
         <nav className={stylesHeader.nav}>
-            <ul>
+            <ul>        
                 <NavLI dest='/' desc={currentLang==='PL'? 'Główna': 'Home'}  />
                 <NavLI dest="/About" desc={currentLang==='PL'? 'O nas': 'About'} />
-                <NavList>
-                </NavList>
+                <NavList />
+                <UserMenu />
 
                 <li>
                 
@@ -41,8 +46,15 @@ const Header = () => {
   )
 }
 
+
+export async function getServerSideProps({req, res}) {
+    const session = await getSession(req, res)
+    if(session.charName){
+        let charName = session.charName
+        return { props: { charName }}
+        
+    } else {
+        return { props: {  }}
+    }
+}
 export default Header
-
-// export async function getServerSideProps(){
-
-// }

@@ -1,0 +1,40 @@
+
+.user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    transition: color 0.5s ease-out, background-color ease-out 0.5s, box-shadow ease-out 0.5s;
+}
+.user:hover {
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    color: black;
+    box-shadow: 0 0 2rem 0.2rem rgb(255, 255, 255);
+}
+.user:hover .container{
+    display: flex;
+
+}
+.container {
+    display: none;
+    padding: 0.1rem;
+    border-radius: 5px;
+    position: absolute;
+    top: 3.5rem;
+    background-color: white;
+}
+.item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+}
+.item:hover {
+    background-color: black;
+
+    border-radius: 5px;
+    box-shadow: 0 0 2rem 0.2rem rgb(255, 255, 255);
+    cursor: pointer;
+}

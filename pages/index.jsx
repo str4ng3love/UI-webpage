@@ -11,8 +11,9 @@ const {currentUser, setUser} = user
 
 useEffect(()=>{
 
-  setUser(props.charName)
+  setUser(props.user)
 }, [])
+
   return (
   <>
   <div className={stylesHome.landing}>
@@ -23,7 +24,7 @@ useEffect(()=>{
 
       <Meta title='Useless Idea - Korporacja Eve Onlnie | Głowna'/>
       <div className={stylesHome.headings} onScroll={(e)=>{
-        console.log(e.scrollY)
+       
       }} >
         <h1 className={stylesHome.headingL}>Useless Idea</h1>
         <h3 className={stylesHome.headingS}>Polska Korporacja Eve Online</h3>
@@ -48,11 +49,25 @@ useEffect(()=>{
 
 export async function getServerSideProps({req, res}) {
   const session = await getSession(req, res)
-  if(session.charName){
-    let charName = session.charName
-    return { props: { charName }}
 
+
+  if(session.charName){
+    let charId = session.charId
+    let charName = session.charName
+    let refreshToken = session.refreshToken
+    let tokenExp = session.tokenExp
+    return { 
+      props: { 
+        user: {
+          charId, charName, refreshToken, tokenExp
+        }
+       }
+    }
   } else {
-    return { props: {  }}
+    return  {
+      props: {
+        
+      }
+    }
   }
 }

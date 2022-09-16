@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { AppContext } from '../context/state'
 import stylesNavList from '../styles/NavList.module.css'
 
+
 const NavList = () => {
   const {user} = useContext(AppContext)
   const { currentUser } = user

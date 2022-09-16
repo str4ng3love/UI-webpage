@@ -5,7 +5,7 @@ const NavLI = ({desc, dest}) => {
     <li className={stylesNavLI.item}>
                     {dest? 
                          <Link href={dest}>
-                        {desc}
+                    {desc}
                     </Link> 
                     : <></>
                     }

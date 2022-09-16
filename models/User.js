@@ -14,9 +14,12 @@ const userSchema = new mongoose.Schema({
     refreshToken: {
         type:String,
         required: true
+    },
+    tokenExp: {
+        type: Date,
+        required: true,
     }
 })
 
-const User = mongoose.models.User||  mongoose.model(`User`, userSchema, 'Users')
+export default mongoose.models.User ||  mongoose.model(`User`, userSchema, 'Users')
 
-module.exports = User

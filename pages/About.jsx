@@ -1,28 +1,36 @@
 import { AppContext } from "../context/state"
-import { useContext } from "react"
+import { getSession } from '../lib/get-session'
+import { useContext, useEffect  } from "react"
 import Meta from "../components/Meta"
 
-const About = () => {
-const state = useContext(AppContext)
+const About = (props) => {
+const {lang, user}= useContext(AppContext)
+const {currentLang} = lang
+const { currentUser, setUser} = user
+useEffect(()=>{
+
+  setUser(props.charName)
+}, [])
 
   return (
     <>
-          <Meta title={ state.lang==='PL'? 'Useless Idea | O nas' : 'Useless Idea | About' }></Meta>
-          <button onClick={async (e)=>{
-              const res = await fetch('/api/session-test')
-              let data = await res.json()
-              console.log(data)
-          }} style={{color: 'black'}}>session go!</button>
-          <button onClick={async (e)=>{
-              const res = await fetch('/api/test')
-              let data = await res.json()
-              console.log(data)
-          }} style={{color: 'black'}}>session test!</button>
+          <Meta title={ currentLang==='PL'? 'Useless Idea | O nas' : 'Useless Idea | About' }></Meta>
+       
           
         
        
     </>
   )
+}
+export async function getServerSideProps({req, res}) {
+  const session = await getSession(req, res)
+  if(session.charName){
+    let charName = session.charName
+    return { props: { charName }}
+
+  } else {
+    return { props: {  }}
+  }
 }
 
 export default About
