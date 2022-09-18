@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 import fetcher from './fetcher'
 
-const useUser = (id) => {
+const getPortrait = (id) => {
     const moddedId = id.slice(14) 
   
     const { data, error } = useSWR(`https://esi.evetech.net/latest/characters/${moddedId}/portrait/?datasource=tranquility`, fetcher)
@@ -13,4 +13,4 @@ const useUser = (id) => {
     }
 
 }
-export default useUser
+export default getPortrait

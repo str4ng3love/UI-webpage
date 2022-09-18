@@ -28,9 +28,18 @@
     background-color: white;
 }
 .item {
+    justify-content: center;
     display: flex;
     align-items: center;
     padding: 0.5rem;
+}
+.item p {
+    
+    color: black;
+}
+.item:hover p {
+    
+    color: white;
 }
 .item:hover {
     background-color: black;
@@ -38,4 +47,20 @@
     border-radius: 5px;
     box-shadow: 0 0 2rem 0.2rem rgb(255, 255, 255);
     cursor: pointer;
+}
+.item:hover img, .item:hover p {
+   scale: 0.75;
+    animation: pulse ease-in-out 1.5s infinite; 
+}
+@keyframes pulse {
+    0%  {
+        scale: 1
+    }
+    50% {
+        scale: 0.95
+    }
+    100% {
+        scale: 1
+    }
+    
 }

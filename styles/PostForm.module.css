@@ -1,0 +1,70 @@
+.container {
+margin: 1rem 5rem;
+}
+.panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.panel > * {
+    padding: 0.3rem;
+}
+.form {
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1rem;
+}
+.field label, .field select {
+    letter-spacing: 0.1ch;
+    font-family: Abel;
+}
+.field select {
+    font-weight: bold;
+    color: black;
+    border-radius: 5px;
+    border: solid white 1px;
+   background-color: rgb(255, 255, 255);
+}
+.field select option {
+    font-weight: bold;
+}
+.field > * {
+    padding: 0.2rem;
+}
+.field label {
+    width: 10ch;  
+    font-weight: bold;
+}
+.field input {
+    border-radius: 5px;
+}
+.btn {
+    height: fit-content;
+    font-family: Orbitron;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    width: 50%;
+    background-color: black;
+    color: white;
+    border: none;
+    margin: 0.2rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: box-shadow ease 0.5s, color ease 0.5s, background-color ease 0.5s;
+}
+.btn:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0rem 0rem 1rem white;
+    
+}

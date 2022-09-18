@@ -31,18 +31,20 @@ export default async function handler (req, res) {
             body: new URLSearchParams(params)
          })
          token = await resp.json()
-     
+         
          JWTpayload = ExtractData(token.access_token)
-
+     
          await ConnectDB()
          const user = await User.findOne({charName: JWTpayload.name })
      
          if(!user){
+            let tokenExp = UnixToDate(JWTpayload.exp)
            const user = await User.create({
                charName: JWTpayload.name,
                charId: JWTpayload.sub,
+               accessToken: token.access_token,
                refreshToken: token.refresh_token,
-               tokenExp: UnixToDate(JWTpayload.exp)
+               tokenExp
                })
                
                return user
@@ -59,8 +61,7 @@ let user = await GetToken()
   
    session.charId = user.charId
    session.charName = user.charName
-   session.refreshToken = user.refreshToken
-   session.tokenExp = user.tokenExp
+   session.tokenExp = user.tokenExp.toString()
  
     
     res.redirect('/')

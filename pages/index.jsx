@@ -5,6 +5,7 @@ import stylesHome from '../styles/Home.module.css'
 import { getSession } from '../lib/get-session'
 
 export default function Home(props) {
+  
 const {lang, user} = useContext(AppContext)
 const {currentLang}  = lang
 const {currentUser, setUser} = user
@@ -54,12 +55,11 @@ export async function getServerSideProps({req, res}) {
   if(session.charName){
     let charId = session.charId
     let charName = session.charName
-    let refreshToken = session.refreshToken
     let tokenExp = session.tokenExp
     return { 
       props: { 
         user: {
-          charId, charName, refreshToken, tokenExp
+          charId, charName, tokenExp
         }
        }
     }

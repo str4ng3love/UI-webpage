@@ -30,7 +30,7 @@
     display: none;
     border-radius: 5px;
 }
-.menu .item{
+.menu .item, .menu > a{
     margin:0.2rem;
     padding: 1rem;
     text-align: center;
@@ -39,6 +39,13 @@
     font-family: Orbitron;
 }
 .menu .item:hover {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 2rem 0.2rem rgb(255, 255, 255);
+    cursor: pointer;
+}
+.menu >a:hover {
     background-color: black;
     color: white;
     border-radius: 5px;
