@@ -8,7 +8,7 @@ const postSchema = new mongoose.Schema({
         minlength: [3, 'Must be at least 3 characters long.'],
         validate:{
             validator: (v)=> {
-                if(v.match(/[^-_a-zA-Z0-9_]/g)){
+                if(v.match(/[^-_a-z.,\ \s\?!A-Z0-9_']/g)){
                     return false
                 } else {
                     return v
@@ -22,7 +22,7 @@ const postSchema = new mongoose.Schema({
         minlength: [3, 'Must be at least 3 characters long.'],
         validate:{
             validator: (v)=> {
-                if(v.match(/[^-_a-zA-Z0-9_]/g)){
+                if(v.match(/[^-_a-z.,\ \s\?!A-Z0-9_]/g)){
                     return false
                 } else {
                     return v

@@ -31,7 +31,6 @@ const handleSubmit = async () => {
            }
         }  
     }
-
     let payload = {
         title,
         excerpt,
@@ -41,6 +40,7 @@ const handleSubmit = async () => {
             scope,
         }
     }
+    console.log(payload)
 
     let resp = await fetch('/api/createPost', {
         method: 'POST',
