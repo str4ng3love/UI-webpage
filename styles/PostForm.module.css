@@ -47,6 +47,12 @@ margin: 1rem 5rem;
 .field input {
     border-radius: 5px;
 }
+.field p {
+    border: solid 1px white;
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
 .btn {
     height: fit-content;
     font-family: Orbitron;

@@ -18,11 +18,9 @@ const Sidebar = () => {
        <div className={stylesSidebar.container} >
             <aside className={stylesSidebar.sidebar}>
               {authorized ? <span onClick={()=>{setForm(!formState)}} className={stylesSidebar.item}>{currentLang===`EN`? `Add a Post`: `Dodaj Post`} <AiOutlineFileAdd /></span> : <></>}
-              <span className={stylesSidebar.item} > item 1</span>
-              <span className={stylesSidebar.item} > item 2</span>
-              <span className={stylesSidebar.item} > wabbajack 3</span>
-              <span className={stylesSidebar.item} > item 4</span>
-              <span className={stylesSidebar.item} > item 5</span>
+              <span className={stylesSidebar.item} >Posts</span>
+              <span className={stylesSidebar.item} >Users</span>
+             
             </aside>
             <span className={stylesSidebar.arrow} >►</span>
        </div> 

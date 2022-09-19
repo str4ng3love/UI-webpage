@@ -3,6 +3,7 @@ import { getSession } from '../lib/get-session'
 import { useContext, useEffect  } from "react"
 import Meta from "../components/Meta"
 import Sidebar from "../components/Sidebar"
+import PostThumb from "../components/PostThumb"
 
 
 export default function Posts(props) {
@@ -22,7 +23,7 @@ useEffect(()=>{
     <>
     <Meta title={ currentLang==='PL'? 'Useless Idea | Posty' : 'Useless Idea | Posts' }  />
     <Sidebar />
-
+            <PostThumb onClick={(e)=>console.log(`hello`)} />
 
     </>
   )

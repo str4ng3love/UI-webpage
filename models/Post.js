@@ -34,12 +34,17 @@ const postSchema = new mongoose.Schema({
         author:{
             type: String,
         },
-        createdAt: Date.now(),
+        createdAt: {
+            type: Date,
+            default: Date.now(),
+         
+        },
         scope: {
             type: String,
-            enum: ['public', 'private'],
-            default: 'private'
+            enum: ['Public', 'Private'],
+            default: 'Private'
         }
 
     }
 })
+export default mongoose.models.Post ||  mongoose.model(`Post`, postSchema, 'Posts')

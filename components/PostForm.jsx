@@ -4,8 +4,13 @@ import { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../context/state'
 
 const PostForm = () => {
-const {form} = useContext(AppContext)
+const {form, user} = useContext(AppContext)
+const {currentUser} = user
 const {currentForm, setForm} = form
+const [msg, setMsg] = useState()
+const [title, setTitle] = useState()
+const [scope, setScope ] = useState('Private')
+const [excerpt, setExcerpt] = useState()
 const [type, setType] = useState(`Paragraph`)
 const [components, setComponents] = useState([])
 const [comp, setComp] = useState({
@@ -13,6 +18,44 @@ const [comp, setComp] = useState({
     id: components.length,
 })
 const [ formData, setFormData ] = useState({objects: {}}) 
+
+const handleSubmit = async () => {
+    let content = components
+    let formDataArray = Object.entries(formData.objects)
+  
+    for(let i = 0; i < content.length; i++){
+        for (let j = 0; j < formDataArray.length; j++){
+            if(formDataArray[j][1].id === content[i].id){
+                let formValue = formDataArray[j][1].value
+                content[i].value = formValue
+           }
+        }  
+    }
+
+    let payload = {
+        title,
+        excerpt,
+        content,
+        meta: {
+            author: currentUser.charName,
+            scope,
+        }
+    }
+
+    let resp = await fetch('/api/createPost', {
+        method: 'POST',
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify({payload})
+    })
+    let data = await resp.json()
+    console.log(data)
+    setMsg(data.msg)
+
+}
+
+
 
 const handleChange = (e, id) => {
 
@@ -24,8 +67,6 @@ const handleChange = (e, id) => {
         return {objects: newObj}
     })
 }
-
-
 
 const RemoveComponent=()=>{
 
@@ -43,12 +84,7 @@ const RemoveComponent=()=>{
    
         setFormData(newForm)
     }
-
-
-
-   
     setForm(null)
- 
 }
 useEffect(()=>{
 
@@ -65,22 +101,32 @@ if(components.length > 0 && currentForm !== null){
   return (
     <>
     <div className={stylesPostForm.container}>
-        <form className={stylesPostForm.form}>
+        <form onSubmit={(e)=> {
+                e.preventDefault()
+                handleSubmit()
+            }} className={stylesPostForm.form}>
 
             <div className={stylesPostForm.field}>
                 <label>Title:</label>
-                <input type="text" />
+                <input required minLength={3} onChange={(e)=> setTitle(e.target.value)} type="text" />
             </div>
 
             <div className={stylesPostForm.field}>
                 <label>Excerpt:</label>
-                <input type="text" />
+                <input required minLength={3} onChange={(e)=> setExcerpt(e.target.value)} type="text" />
+            </div>
+            <div className={stylesPostForm.field}>
+                <label>Scope:</label>
+                <select  name="scope" defaultValue={scope} onChange={(e)=>{setScope(e.target.value)}}>
+                    <option>Private</option>
+                    <option>Public</option>
+               </select>
             </div>
 
             {components.length!==0 && components.map((component)=> 
                 <div key={component.id} className={stylesPostForm.field}>
                     <label >{component.label}</label>
-                    {component.label!== `Paragraph` ?<input key={component.id} value={formData.objects[`${component.id}`]?.value || ""} onChange={(e)=>handleChange(e, component.id)} type="text" />   : <textarea key={component.id} value={formData.objects[`${component.id}`]?.value || ""} onChange={(e)=>handleChange(e, component.id)} cols="30" rows="10" ></textarea>}
+                    {component.label!== `Paragraph` ?<input required key={component.id} value={formData.objects[`${component.id}`]?.value || ""} onChange={(e)=>handleChange(e, component.id)} type="text" />   : <textarea required key={component.id} value={formData.objects[`${component.id}`]?.value || ""} onChange={(e)=>handleChange(e, component.id)} cols="30" rows="10" ></textarea>}
                     <button onClick={(e)=>{
             e.preventDefault();
             setForm(component.id)}} className={stylesPostForm.btnX}>X</button>
@@ -106,9 +152,10 @@ if(components.length > 0 && currentForm !== null){
                 }              
                 } className={stylesPostForm.btn}>Add Component</button>
             </div>
-            <button onClick={(e)=> {
-                e.preventDefault()
-            }} className={stylesPostForm.btn}>SUBMIT</button>
+           { msg ? <div className={stylesPostForm.field}>
+              <p>{msg}</p>
+            </div>: <></>}
+            <button className={stylesPostForm.btn}>SUBMIT</button>
         </form>
       
     </div>
