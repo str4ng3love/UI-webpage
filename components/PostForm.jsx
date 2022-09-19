@@ -1,39 +1,67 @@
-import FormComponent from './FormComponent'
+
 import stylesPostForm from '../styles/PostForm.module.css'
 import { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../context/state'
+
 const PostForm = () => {
 const {form} = useContext(AppContext)
 const {currentForm, setForm} = form
 const [type, setType] = useState(`Paragraph`)
-const [components, setComponent] = useState([])
-console.log(components)
-const AddComponent = (e) => {
+const [components, setComponents] = useState([])
+const [comp, setComp] = useState({
+    label: type,
+    id: components.length,
+})
+const [ formData, setFormData ] = useState({objects: {}}) 
+
+const handleChange = (e, id) => {
+
     e.preventDefault()
-    setComponent(prevState => [...prevState, type])
+
+    setFormData((state)=>{
+        const newObj = {...state.objects};
+        newObj[`${id}`] = { value: e.target.value, id: id}
+        return {objects: newObj}
+    })
 }
+
+
 
 const RemoveComponent=()=>{
-    let deleteCount = 1
-    if(currentForm === 0){
-        deleteCount = 0
+
+    let compsCopy = Array.from(components)
+    let newComps = compsCopy.filter(entry =>{
+        return entry.id !== currentForm
+    })
+    setComponents(newComps)
+
+    if(formData.objects.length > 0){
+        let formCopy = Array.from(formData)
+        let newForm = formCopy.filter(entry=>{
+            return entry.objects.id !== currentForm
+        })
+   
+        setFormData(newForm)
     }
-    let newArray = components.splice(currentForm, deleteCount)
+
+
+
+   
     setForm(null)
-    setComponent(newArray)
-
-
-    
-    
+ 
 }
 useEffect(()=>{
-   
+
+
+    setComp({
+        label: type,
+        id: Date.now(),
+    }) 
 if(components.length > 0 && currentForm !== null){
     RemoveComponent()
 }
+}, [currentForm, components, type])
 
-
-}, [currentForm, components])
   return (
     <>
     <div className={stylesPostForm.container}>
@@ -49,25 +77,38 @@ if(components.length > 0 && currentForm !== null){
                 <input type="text" />
             </div>
 
-            {components.length!==0 && components.map((component, index)=> 
-              
-              <FormComponent type={component} key={index} id={index} />
+            {components.length!==0 && components.map((component)=> 
+                <div key={component.id} className={stylesPostForm.field}>
+                    <label >{component.label}</label>
+                    {component.label!== `Paragraph` ?<input key={component.id} value={formData.objects[`${component.id}`]?.value || ""} onChange={(e)=>handleChange(e, component.id)} type="text" />   : <textarea key={component.id} value={formData.objects[`${component.id}`]?.value || ""} onChange={(e)=>handleChange(e, component.id)} cols="30" rows="10" ></textarea>}
+                    <button onClick={(e)=>{
+            e.preventDefault();
+            setForm(component.id)}} className={stylesPostForm.btnX}>X</button>
+                </div>
                 )
             }
-
-
             <div className={stylesPostForm.panel}>
                 <div className={stylesPostForm.field}>
                     <label>Type:</label>
-                    <select defaultValue={`Paragraph`} onChange={(e)=>setType(e.target.value)} name="types">
+                    <select defaultValue={type} onChange={(e)=>{
+                        setType(e.target.value)
+                        }} name="types">
                         <option>Paragraph</option>
                         <option>Video</option>
                         <option>Image</option>
                     </select>
                 </div>
-                <button onClick={(e)=>AddComponent(e)} className={stylesPostForm.btn}>Add Component</button>
+                <button onClick={(e)=>{
+                    e.preventDefault()
+                    if(comp){
+                        setComponents(prevState => [...prevState, comp]) 
+                    }
+                }              
+                } className={stylesPostForm.btn}>Add Component</button>
             </div>
-            <button className={stylesPostForm.btn}>SUBMIT</button>
+            <button onClick={(e)=> {
+                e.preventDefault()
+            }} className={stylesPostForm.btn}>SUBMIT</button>
         </form>
       
     </div>

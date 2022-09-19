@@ -68,3 +68,24 @@ margin: 1rem 5rem;
     box-shadow: 0rem 0rem 1rem white;
     
 }
+.btnX {
+    margin: 0.5rem;
+    height: fit-content;
+    font-family: Orbitron;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    background-color: rgba(255, 0, 0, 0.5);
+    color: white;
+    border: none;
+
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: box-shadow ease 0.5s, color ease 0.5s, background-color ease 0.5s;
+}
+.btnX:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0rem 0rem 1rem white;
+    cursor: pointer;
+}
