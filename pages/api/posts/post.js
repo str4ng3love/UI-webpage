@@ -9,7 +9,13 @@ export default async function handler (req, res) {
     try {
         const post = await Post.findOne({title: query.post})
 
-        res.json({post})
+        res.json({post: {
+            title: ` dziala`,
+            meta: {
+                author: `zenek`,
+                createdAt: `teraz `
+            }
+        } })
     } catch (error) {
         if(error){
             console.log(error)
