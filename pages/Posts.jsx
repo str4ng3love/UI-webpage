@@ -3,7 +3,6 @@ import { getSession } from '../lib/get-session'
 import Post from '../models/Post'
 import ConnectDB from '../lib/ConnectDB'
 import { useContext, useEffect, useState  } from "react"
-import Link from "next/link"
 import Meta from "../components/Meta"
 import Sidebar from "../components/Sidebar"
 import PostThumb from "../components/PostThumb"
@@ -20,7 +19,7 @@ export default function Posts(props) {
   const trueCorp = parseInt(process.env.NEXT_PUBLIC_trueCorp)
   let parsing = trueCorp === currentCorp
 
- console.log(showPost)
+
 useEffect(()=>{
 
   setUser(props.user)
