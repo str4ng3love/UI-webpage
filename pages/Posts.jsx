@@ -69,7 +69,7 @@ export async function getServerSideProps({req, res}) {
     } else {
       return  {
         props: {
-          
+          posts,
         }
       }
     }
