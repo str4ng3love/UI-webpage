@@ -1,6 +1,12 @@
-.thumbGallery {
-    margin: 2rem 3rem;
-    display: grid;
-    gap:1rem;
-    grid-template-columns: repeat(auto-fit, minmax(20px, 200px));
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 4rem;
+}
+.author{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }

@@ -3,24 +3,24 @@ import { getSession } from '../lib/get-session'
 import Post from '../models/Post'
 import ConnectDB from '../lib/ConnectDB'
 import { useContext, useEffect, useState  } from "react"
-import useSWR from "swr"
-import fetcher from "../hooks/fetcher"
+import Link from "next/link"
 import Meta from "../components/Meta"
 import Sidebar from "../components/Sidebar"
 import PostThumb from "../components/PostThumb"
-import stylesPost from '../styles/Post.module.css'
+import stylesPosts from '../styles/Posts.module.css'
+
 
 export default function Posts(props) {
   const {lang, user, corp}= useContext(AppContext)
   const {currentLang} = lang
-  const { currentUser, setUser} = user
+  const {currentUser, setUser} = user
   const {currentCorp} = corp
+  const [showPost, setShowPost] = useState({ post: {show: false, id: ''}})
   const posts = JSON.parse(props.posts)
+  const trueCorp = parseInt(process.env.NEXT_PUBLIC_trueCorp)
+  let parsing = trueCorp === currentCorp
 
-
-const trueCorp = parseInt(process.env.NEXT_PUBLIC_trueCorp)
-
-let parsing = trueCorp === currentCorp
+ console.log(showPost)
 useEffect(()=>{
 
   setUser(props.user)
@@ -31,14 +31,18 @@ useEffect(()=>{
     <Sidebar />
     
     {props.posts ? 
-    <div className={stylesPost.thumbGallery}>
+    <div className={stylesPosts.thumbGallery}>
       {posts.map((post)=>
-        <PostThumb title={post.title} excerpt={post.excerpt} author={post.meta.author} />
+        
+        <PostThumb key={post._id} title={post.title} excerpt={post.excerpt} author={post.meta.author} />
       )}
 
     </div> 
+      
+   
     : <></>}
-
+    
+        
     </>
   )
 }

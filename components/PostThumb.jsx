@@ -1,9 +1,10 @@
 import stylesPostThumb from '../styles/PostThumb.module.css'
-
+import Link from 'next/link'
 const PostThumb = (props) => {
   return (
     <>
-        <div onClick={props.onClick} className={stylesPostThumb.container}>
+    <Link href={`/post/${props.title}`} >
+        <div className={stylesPostThumb.container}>
             <h3 className={stylesPostThumb.heading}>
                 {props.title}
             </h3>
@@ -14,7 +15,7 @@ const PostThumb = (props) => {
                {props.excerpt}
             </span>
         </div>
-    
+      </Link>
     </>
   )
 }
