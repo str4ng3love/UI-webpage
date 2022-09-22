@@ -14,9 +14,6 @@ const NavList = () => {
             <span className={stylesNavList.logo}>UI | Ω
                 <div className={stylesNavList.menu}>
                   <Link href='/Posts' className={stylesNavList.item}  >{currentLang === 'EN' ? 'Posts' : 'Posty' }</Link>
-                  <a className={stylesNavList.item}  onClick={(e)=> {
-                    console.log(currentUser)
-                  }} href="#">check</a>
                   <a className={stylesNavList.item} href="https://zkillboard.com/corporation/98067874/" target="_blank" rel="noopener noreferrer">zKillboard</a>
                   <a className={stylesNavList.item} href="https://www.facebook.com/uselessidea.co/" target="_blank" rel="noopener noreferrer">Facebook</a>
                 </div>

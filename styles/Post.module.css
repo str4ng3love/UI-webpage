@@ -6,7 +6,11 @@
     margin: 2rem 4rem;
 }
 .author{
+    margin-top: 2rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+.video {
+    margin: 5rem 0rem;
 }

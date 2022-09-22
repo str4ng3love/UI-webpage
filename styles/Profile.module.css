@@ -1,0 +1,86 @@
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc( 100vh - calc( var(--footerHeight) + var(--headerHeight)));
+}
+.myPosts {
+    display: flex;
+    margin: 1rem 0;
+    justify-content: center;
+}
+.container {
+    margin: 2rem 4rem;
+    background-color: rgb(66, 52, 31);
+    display:grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+}
+.gridItem {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background-color: black;
+}
+.gridField {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:0.2rem;
+    padding: 0.2rem;
+    border-radius: 5px;
+}
+.gridField:hover {
+    background-color: white;
+}
+.gridField:hover > * {
+    color: black
+}
+.gridField:hover > .links {
+    border-left: 1px solid black;
+}
+.gridField a {
+    width: 100%;
+    max-width: 70%;
+    padding: 0.2rem;
+}
+.gridField a:hover {
+    background-color: black;
+    color:white;
+    border-radius: 5px;
+}
+.links {
+    border-left: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.links > svg {
+    cursor: pointer;
+    margin: 0.3rem;
+}
+.edit {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 0.2rem;
+    display: flex;
+    align-items: center;
+}
+.edit:hover {
+    color: rgb(129, 148, 224);
+    background-color: black;
+}
+.del:hover {
+    color: red;
+    background-color: black;
+    
+}
+.del {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 0.2rem;
+    display: flex;
+    align-items: center;
+}

@@ -3,7 +3,7 @@ import stylesPostForm from '../styles/PostForm.module.css'
 import { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../context/state'
 
-const PostForm = () => {
+const EditPostForm = (props) => {
     
 const {user} = useContext(AppContext)
 const {currentUser} = user
@@ -18,6 +18,52 @@ const [comp, setComp] = useState({
     id: components.length,
 })
 const [formData, setFormData ] = useState({objects: {}}) 
+const [post, setPost] = useState()
+
+let postId = props.id
+
+useEffect(()=> {
+setPost(null)
+    setComponents([])
+    setFormData({objects: {}})
+    
+    getPostsData(postId)
+    
+  
+}, [postId])
+
+
+const getPostsData = async (props) => {
+ 
+    
+        try {
+            let resp = await fetch(`/api/posts/post?postId=${props}`)
+            let data = await resp.json()
+            setPost(data.post) 
+            
+            setTitle(data.post.title)
+        setExcerpt(data.post.excerpt)
+        setScope(data.post.meta.scope)
+       
+        for( let i = 0; i < data.post.content.length; i++){
+         let component = {
+                label: data.post.content[i].label,
+                id: data.post.content[i].id
+            }
+            setComponents(prevState => [...prevState, component])
+            setFormData((state)=>{
+            const newObj = {...state.objects};
+            newObj[`${data.post.content[i].id}`] = { value: data.post.content[i].value, id: data.post.content[i].id}
+            return {objects: newObj}
+            })
+        }  
+
+        } catch (error) {
+            console.log(error)
+        }
+    
+        
+}
 
 
 const handleChange = (e, id) => {
@@ -28,7 +74,6 @@ const handleChange = (e, id) => {
         newObj[`${id}`] = { value: e.target.value, id: id}
         return {objects: newObj}
     })
-   
 }
 
 
@@ -63,27 +108,36 @@ const handleSubmit = async () => {
         }  
     }
     let payload = {
+        id: post._id,
         title,
         excerpt,
         content,
         meta: {
             author: currentUser.charName,
+            createdAt: post.meta.createdAt,
             scope,
         }
     }
 
-    let resp = await fetch('/api/createPost', {
-        method: 'POST',
-        headers: {
-            'Content-Type':'application/json'
-        },
-        body: JSON.stringify({payload})
-    })
-    let data = await resp.json()
-    
-    setMsg(data.msg)
+    try {
+        let resp = await fetch(`/api/posts/post`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type':'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+
+        let data = await resp.json()
+        setMsg(data.msg) 
+    } catch (error) {
+        console.log(error)
+    }
+ 
 
 }
+
+
 
 useEffect(()=>{
 
@@ -93,7 +147,7 @@ useEffect(()=>{
     }) 
 
  
-}, [components, type, formData])
+}, [type])
 
   return (
     <>
@@ -119,7 +173,7 @@ useEffect(()=>{
                     <option>Public</option>
                </select>
             </div>
-            {components.length!==0 && components.map((component)=> 
+            {post && components.length!==0 && components.map((component)=> 
                 <div key={component.id} className={stylesPostForm.field}>
                     <label >{component.label}</label>
                     {component.label!== `Paragraph` ?<input required key={component.id} value={formData.objects[`${component.id}`]?.value || ""} onChange={(e)=>handleChange(e, component.id)} type="text" />   : <textarea required key={component.id} value={formData.objects[`${component.id}`]?.value || ""} onChange={(e)=>handleChange(e, component.id)} cols="30" rows="10" ></textarea>}
@@ -162,4 +216,4 @@ useEffect(()=>{
   )
 }
 
-export default PostForm
+export default EditPostForm

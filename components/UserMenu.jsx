@@ -60,7 +60,7 @@ if(currentUser){
         {currentUser.charName}
         <div className={stylesUser.container}>
             <div className={stylesUser.item}>
-              <Portrait id={currentUser.charId}/>
+             <Portrait id={currentUser.charId}/>
             </div>
             <div className={stylesUser.item}>
             {parsing ? <p>you rock</p> : <p>sorry, you suck</p>}

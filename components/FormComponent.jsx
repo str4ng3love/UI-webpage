@@ -12,14 +12,14 @@ const {setForm} = form
 
         {props.type===`Paragraph` ? <div className={stylesFormComponent.field}>
           <label>{props.type}:</label>
-          <textarea cols="30" rows="10"  placeholder={props.id}></textarea>
+          <textarea cols="30" rows="10"  ></textarea>
           <button onClick={(e)=>{
             e.preventDefault();
             setForm(props.id)}} className={stylesFormComponent.btn}>X</button>
         </div>: <></>}
         {props.type===`Image` ?  <div className={stylesFormComponent.field}>
           <label>{props.type}:</label>
-          <input type="text" placeholder={props.id} />
+          <input type="text" />
           <button onClick={(e)=>{
             e.preventDefault();
             setForm(props.id)
@@ -27,7 +27,7 @@ const {setForm} = form
         </div>: <></>}
         {props.type===`Video` ? <div className={stylesFormComponent.field}>
           <label>{props.type}:</label>
-          <input type="text" placeholder={props.id}/>
+          <input type="text" />
           <button onClick={(e)=>{
             e.preventDefault();
             setForm(props.id)}} className={stylesFormComponent.btn}>X</button>

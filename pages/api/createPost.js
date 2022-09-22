@@ -15,7 +15,7 @@ export default async function handler (req, res){
             res.json({msg: `Title exists, try a different one.`})
         }
         if(error.name ===`ValidationError`){
-            res.json({msg: `Fields filled out incorectly.`})
+            res.json({msg: `Fields filled out incorectly. Don't use any special signs.`})
         }
     }
 }

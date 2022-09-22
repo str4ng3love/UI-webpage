@@ -30,6 +30,9 @@ const postSchema = new mongoose.Schema({
             }, message: props =>`${props.value} is not a valid input, please use only letters and digits.`
         }
     },
+    content: {
+        type: Array
+    },
     meta: {
         author:{
             type: String,

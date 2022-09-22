@@ -14,8 +14,7 @@ export default function Posts(props) {
   const {currentLang} = lang
   const {currentUser, setUser} = user
   const {currentCorp} = corp
-  const [showPost, setShowPost] = useState({ post: {show: false, id: ''}})
-  const posts = JSON.parse(props.posts)
+  const posts = JSON.parse(props.jsonPosts)
   const trueCorp = parseInt(process.env.NEXT_PUBLIC_trueCorp)
   let parsing = trueCorp === currentCorp
 
@@ -29,7 +28,7 @@ useEffect(()=>{
     <Meta title={ currentLang==='PL'? 'Useless Idea | Posty' : 'Useless Idea | Posts' }  />
     <Sidebar />
     
-    {props.posts ? 
+    {props.jsonPosts ? 
     <div className={stylesPosts.thumbGallery}>
       {posts.map((post)=>
         
@@ -50,16 +49,16 @@ useEffect(()=>{
 export async function getServerSideProps({req, res}) {
   await ConnectDB()
     const session = await getSession(req, res)
-    let dledPosts = await Post.find().select('meta.author meta.createdAt title excerpt')
+    let posts = await Post.find().select('_id meta.author meta.createdAt title excerpt')
     
-    let posts = JSON.stringify(dledPosts)
+    let jsonPosts = JSON.stringify(posts)
     if(session.charName){
       let charId = session.charId
       let charName = session.charName
       let tokenExp = session.tokenExp
       return { 
         props: { 
-          posts,
+       jsonPosts,
           user: {
             charId, charName, tokenExp
           }
@@ -68,7 +67,7 @@ export async function getServerSideProps({req, res}) {
     } else {
       return  {
         props: {
-          posts,
+       jsonPosts,
         }
       }
     }
