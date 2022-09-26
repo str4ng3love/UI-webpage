@@ -24,7 +24,7 @@
 .container > .heading:first-letter{
     text-transform: capitalize;
 }
-.container:hover .excerpt{
+.container:hover .description{
     display: block;
     color: black;
 }
@@ -32,11 +32,15 @@
     padding: 0.1rem;
     
 }
-.excerpt {
+.description {
     transform: translateY(100%);
     position:absolute;
     background-color: white;
     display: none;
     padding: 0.5rem;
     border-radius: 5px;
+    box-shadow: black 0rem 0rem 1rem;
+}
+.description::first-letter {
+    text-transform: capitalize;
 }

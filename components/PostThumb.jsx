@@ -11,8 +11,8 @@ const PostThumb = (props) => {
             <span className={stylesPostThumb.author}>
               by {props.author}
             </span>
-            <span className={stylesPostThumb.excerpt}>
-               {props.excerpt}
+            <span className={stylesPostThumb.description}>
+               {props.description}
             </span>
         </div>
       </Link>

@@ -9,15 +9,15 @@ const Post = () => {
     const query = router.query
     const {pid} = query
     const { post, isLoading, isError } = getPost(pid)
- 
+
 
     if(isLoading) return <Spinner_Mini/>
     if(isError) return <Error />
     return(
         <>
-        <div className={stylesPost.container}>
+        <div key={post._id} className={stylesPost.container}>
         
-           
+        
             <h2>{post.post.title}</h2>
             <div className={stylesPost.author}>
                 <span>by {post.post.meta.author}</span>
@@ -31,13 +31,13 @@ const Post = () => {
             
             post.post.content.map((el)=> {
                 if(el.label === `Paragraph`){
-                    return <p key={el._id}>{el.value}</p>
+                    return <p key={el.id}>{el.value}</p>
                 } 
                 if(el.label === `Image`){
-                    return <img key={el._id} src={el.value} />
+                    return <img key={el.id} src={el.value} />
                 }
                 if(el.label === `Video`){
-                    return <iframe className={stylesPost.video} width="560" height="315" src={el.value} title="Video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    return <iframe key={el.id} className={stylesPost.video} width="560" height="315" src={el.value} title="Video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullscreen></iframe>
                 }
                 }
             )

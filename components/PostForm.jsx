@@ -8,9 +8,10 @@ const PostForm = () => {
 const {user} = useContext(AppContext)
 const {currentUser} = user
 const [msg, setMsg] = useState()
-const [title, setTitle] = useState()
+const [title, setTitle] = useState('')
 const [scope, setScope ] = useState('Private')
-const [excerpt, setExcerpt] = useState()
+const [category, setCategory] = useState()
+const [description, setDescription] = useState()
 const [type, setType] = useState('Paragraph')
 const [components, setComponents] = useState([])
 const [comp, setComp] = useState({
@@ -64,11 +65,14 @@ const handleSubmit = async () => {
     }
     let payload = {
         title,
-        excerpt,
+        description,
         content,
         meta: {
             author: currentUser.charName,
             scope,
+            category,
+            createdAt: Date.now()
+
         }
     }
 
@@ -109,14 +113,22 @@ useEffect(()=>{
             </div>
 
             <div className={stylesPostForm.field}>
-                <label>Excerpt:</label>
-                <input value={excerpt} required minLength={3} onChange={(e)=> setExcerpt(e.target.value)} type="text" />
+                <label>Description:</label>
+                <input value={description} required minLength={3} onChange={(e)=> setDescription(e.target.value)} type="text" />
             </div>
             <div className={stylesPostForm.field}>
                 <label>Scope:</label>
                 <select  name="scope" defaultValue={scope} onChange={(e)=>{setScope(e.target.value)}}>
                     <option>Private</option>
                     <option>Public</option>
+               </select>
+            </div>
+            <div className={stylesPostForm.field}>
+                <label>Category:</label>
+                <select  name="category" defaultValue={category} onChange={(e)=>{setCategory(e.target.value)}} >
+                    <option>News</option>
+                    <option>Tutorial</option>
+                    <option>Swag</option>
                </select>
             </div>
             {components.length!==0 && components.map((component)=> 

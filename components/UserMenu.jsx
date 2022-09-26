@@ -42,7 +42,7 @@ if(currentUser){
     <div className={stylesUser.user}>
         <FaUserAlt />
         <div className={stylesUser.container}>
-          <div onClick={async (e)=> {
+          <div onClick={async ()=> {
             try {
               let resp = await fetch('api/auth')
               let data = await resp.json()

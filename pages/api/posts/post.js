@@ -6,17 +6,20 @@ export default async function handler (req, res) {
 
         let postObj = req.query
        
-
         try {
             await ConnectDB()
             if(postObj.post){
                 let post = await Post.findOne({title: postObj.post})
-                res.json({post})
+        
+              return  res.json({post})
             }
             if(postObj.postId){
                 
                 let post = await Post.findOne({_id: postObj.postId})
-                res.json({post})
+               return res.json({post})
+            } else {
+                let posts = await Post.find()
+                res.json({posts})
             }
             
         } catch (error) {

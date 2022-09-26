@@ -6,6 +6,9 @@
   --boxShadow:  0rem 0rem 2rem var(--uiColorDimmed);
   --footerHeight: 7rem;
   --headerHeight: 5.5rem;
+  --bgColor: rgba(0, 0, 0, 0.895);
+  --widthContainer: 75%;
+  --marginCenter: 0 auto;
 }
 * {
   box-sizing: border-box;

@@ -25,29 +25,85 @@
     opacity: 0;
     transition: opacity 0.25s ease-out;
 }
-.sidebar .item{
+.create {
+    min-width: 100%;
     white-space: pre-wrap;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     font-family: Orbitron;
     text-transform: capitalize;
     background-color: black;
     padding: 1rem;
-    width: max-content;
+    border-radius: 5px;
+    transition: 0.5s ease box-shadow, 0.5s ease background-color, 0.5s ease color;
+    margin: 0.1rem 0;
+}
+.create:hover {
+    box-shadow:  0rem 0rem 1rem 0.1rem white;
+    color: black;
+    background-color: white;
+}
+.sidebar .item{
     min-width: 100%;
+    white-space: pre-wrap;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    font-family: Orbitron;
+    text-transform: capitalize;
+    background-color: black;
+    padding: 0.5rem;
     border-radius: 5px;
     transition: 0.5s ease box-shadow, 0.5s ease background-color, 0.5s ease color;
     margin: 0.1rem 0;
 }
 .sidebar .item:hover {
-    min-width: 100%;
     box-shadow:  0rem 0rem 1rem 0.1rem white;
     color: black;
     background-color: white;
 }
+.item:hover > * {
+    color: black;
+}
 .arrow {
     transform: translateX(-200%);
-
     transition: opacity 0.25s ease-out;
 }
+/* ------------------------------menu --------------------------------- */
 
+.box {
+    border-radius: 5px;
+    background-color: white;
+    padding: 0.5rem;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+}
+.box > * {
+    color: black;
+}
+.subBox {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0rem 0rem 0.5rem black;
+    border-radius: 5px;
+}
+.label {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+.label:hover {
+    background-color: black;
+    color:white;
+}
+.label:hover > .box {
+    display: flex;
+}
+.itemContainer {
+    display: flex;
+  
+}

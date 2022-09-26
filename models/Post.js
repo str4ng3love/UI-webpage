@@ -16,7 +16,7 @@ const postSchema = new mongoose.Schema({
             }, message: props =>`${props.value} is not a valid title, please use only letters and digits.`
         }
     },
-    excerpt: {
+    description: {
         type: String,
         required: [true, `Field required.`],
         minlength: [3, 'Must be at least 3 characters long.'],
@@ -39,13 +39,18 @@ const postSchema = new mongoose.Schema({
         },
         createdAt: {
             type: Date,
-            default: Date.now(),
+            
          
         },
         scope: {
             type: String,
             enum: ['Public', 'Private'],
             default: 'Private'
+        }, 
+        category: {
+            type: String,
+            enum: ['News', 'Tutorial', 'Swag'],
+            default: 'News'
         }
 
     }
