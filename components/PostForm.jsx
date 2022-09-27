@@ -71,7 +71,7 @@ const handleSubmit = async () => {
             author: currentUser.charName,
             scope,
             category,
-            createdAt: Date.now()
+            createdAt: Date.now() + 7200000
 
         }
     }
@@ -150,6 +150,7 @@ useEffect(()=>{
                         <option>Paragraph</option>
                         <option>Video</option>
                         <option>Image</option>
+                        <option>Subtitle</option>
                     </select>
                 </div>
                 <button onClick={(e)=>{

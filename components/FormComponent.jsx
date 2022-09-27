@@ -32,6 +32,13 @@ const {setForm} = form
             e.preventDefault();
             setForm(props.id)}} className={stylesFormComponent.btn}>X</button>
         </div>: <></>}
+        {props.type===`Subtitle` ? <div className={stylesFormComponent.field}>
+          <label>{props.type}:</label>
+          <input type="text" />
+          <button onClick={(e)=>{
+            e.preventDefault();
+            setForm(props.id)}} className={stylesFormComponent.btn}>X</button>
+        </div>: <></>}
     </>
   )
 }

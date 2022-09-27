@@ -1,6 +1,7 @@
 .container {
     margin: var(--marginCenter);
     width: 75%;
+    background-color: var(--bgColor);
 }
 .info {
     display: flex;

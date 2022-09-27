@@ -15,13 +15,13 @@ const Post = () => {
     if(isError) return <Error />
     return(
         <>
-        <div key={post._id} className={stylesPost.container}>
+        <div className={stylesPost.container}>
+            <div className={stylesPost.post}>
         
-        
-            <h2>{post.post.title}</h2>
+            <h2 className={stylesPost.title} >{post.post.title}</h2>
             <div className={stylesPost.author}>
                 <span>by {post.post.meta.author}</span>
-                <span>On: {post.post.meta.createdAt}</span>
+                <span>On: {post.post.meta.createdAt.toString().replace('T', ' ').replace('Z', ' ').slice(0, -5)}</span>
             </div> 
          
             
@@ -31,13 +31,16 @@ const Post = () => {
             
             post.post.content.map((el)=> {
                 if(el.label === `Paragraph`){
-                    return <p key={el.id}>{el.value}</p>
+                    return <p className={stylesPost.paragraph} key={el.id}>{el.value}</p>
                 } 
                 if(el.label === `Image`){
-                    return <img key={el.id} src={el.value} />
+                    return <img className={stylesPost.image} key={el.id} src={el.value} />
                 }
                 if(el.label === `Video`){
                     return <iframe key={el.id} className={stylesPost.video} width="560" height="315" src={el.value} title="Video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullscreen></iframe>
+                }
+                if(el.label === `Subtitle`){
+                    return <h3 className={stylesPost.subtitle} key={el.id}>{el.value}</h3>
                 }
                 }
             )
@@ -49,7 +52,7 @@ const Post = () => {
          </>
         }
     
-            
+    </div>    
         </div>
         
         </>

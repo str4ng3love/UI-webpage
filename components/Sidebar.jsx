@@ -9,7 +9,7 @@ const Sidebar = (props) => {
   const [ formState, setForm ] = useState(null)
   const [showSubMenu, setShowSubMenu] = useState()
   const {lang, user, corp} = useContext(AppContext)
-  const {currentLang} = lang
+  const {currentLang} = lang 
   const {currentUser} = user
   const {currentCorp} = corp
   const authorized = currentCorp === parseInt(process.env.NEXT_PUBLIC_trueCorp)

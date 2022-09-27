@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 75%;
-    background-color: rgba(0, 0, 0, 0.895);
+    background-color: var(--bgColor);
     margin: var(--marginCenter);
     min-height: calc( 100vh - calc( var(--footerHeight) + var(--headerHeight)));
 }

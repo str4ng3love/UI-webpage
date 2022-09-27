@@ -52,13 +52,13 @@ export default async function handler (req, res) {
     } 
     if(req.method === 'PUT'){
         try {
-            console.log(req.body)
+            // console.log(req.body)
                 await ConnectDB()
                     let post = await Post.findByIdAndUpdate(req.body.id, {title : req.body.title, excerpt: req.body.excerpt, content: req.body.content, meta:{
                         scope: req.body.meta.scope,
                         author: req.body.meta.author,
                         createdAt: req.body.meta.createdAt,
-                        updated: Date.now()
+                        updated: Date.now() + 7200000
                     }})
                     if(post){
                         res.json({msg: `Updated.`})
