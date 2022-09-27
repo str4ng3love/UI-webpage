@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import getPost from '../../hooks/getPost'
 import Spinner_Mini from '../../components/Spinner_Mini'
 import Error from '../../components/Error'
+import Portrait from '../../components/Portrait'
 import stylesPost from '../../styles/Post.module.css'
 
 const Post = () => {
@@ -20,10 +21,13 @@ const Post = () => {
         
             <h2 className={stylesPost.title} >{post.post.title}</h2>
             <div className={stylesPost.author}>
+                <div className={stylesPost.user}>
                 <span>by {post.post.meta.author}</span>
-                <span>On: {post.post.meta.createdAt.toString().replace('T', ' ').replace('Z', ' ').slice(0, -5)}</span>
-            </div> 
-         
+                <Portrait id={post.post.meta.authorId} />
+                </div>
+           
+            <span>On: {post.post.meta.createdAt.toString().replace('T', ' ').replace('Z', ' ').slice(0, -5)}</span>
+          </div> 
             
             
             {

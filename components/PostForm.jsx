@@ -69,6 +69,7 @@ const handleSubmit = async () => {
         content,
         meta: {
             author: currentUser.charName,
+            authorId: currentUser.charId,
             scope,
             category,
             createdAt: Date.now() + 7200000
