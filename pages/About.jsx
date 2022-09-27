@@ -22,7 +22,7 @@ useEffect(()=>{
     <>
           <Meta title={ currentLang==='PL'? 'Useless Idea | O nas' : 'Useless Idea | About' }></Meta>
        
-   
+   <h1>Work in progress.</h1>
         
        
     </>
