@@ -1,3 +1,7 @@
+.container {
+    margin: var(--marginCenter);
+    width: 75%;
+}
 .info {
     display: flex;
     align-items: center;
@@ -9,9 +13,8 @@
     margin: 1rem 0;
     justify-content: center;
 }
-.container {
+.grid {
     margin: 2rem 4rem;
-    background-color: rgb(66, 52, 31);
     display:grid;
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
@@ -83,4 +86,10 @@
     padding: 0.2rem;
     display: flex;
     align-items: center;
+}
+
+@media (max-width: 1000px){
+    .container {
+        width: 100%;
+    }
 }

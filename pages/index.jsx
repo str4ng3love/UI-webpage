@@ -40,7 +40,7 @@ useEffect(()=>{
 
     <div className={stylesHome.mainContainer}>
         <div className={stylesHome.dummy} >
-          xx
+          
         </div>
       
     </div>

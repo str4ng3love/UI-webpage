@@ -1,3 +1,11 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    background-color: rgba(0, 0, 0, 0.895);
+    margin: var(--marginCenter);
+    min-height: calc( 100vh - calc( var(--footerHeight) + var(--headerHeight)));
+}
 .thumbGallery {
     margin: 2rem 3rem;
     display: grid;
@@ -8,4 +16,9 @@
     display: flex;
     justify-content: center;
     margin-top: 5rem;
+}
+@media (max-width: 1000px){
+    .container {
+        width: 100%;
+    }
 }

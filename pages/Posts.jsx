@@ -50,6 +50,7 @@ useEffect(()=> {
   return (
     <>
     <Meta title={ currentLang==='PL'? 'Useless Idea | Posty' : 'Useless Idea | Posts' }  />
+    <div className={stylesPosts.container}>
     <Sidebar onClick={(e)=>setCat(e.target.innerHTML)} />
     
     {readyPosts ? 
@@ -74,10 +75,10 @@ useEffect(()=> {
     : <h2 className={stylesPosts.heading}>{currentLang === `EN` ? `Nothing posted yet.`: `Brak publikacji.`}</h2>}
     
         
+    </div>
     </>
   )
 }
-
 
 export async function getServerSideProps({req, res}) {
 
