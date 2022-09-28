@@ -60,7 +60,7 @@ const Profile = (props) => {
   return (
     <><div className={stylesProfile.container}>
       {currentUser ? <> <Meta title={currentLang === 'PL'? `Useless Idea | ${currentUser.charName} Profil` : `Useless Idea | ${currentUser.charName} Profile`} />
-      {editPost ? <EditPostForm id={editPost}/>: <></>}
+      {editPost ? <EditPostForm onClick={(e)=>{setEditPost(!editPost)}} id={editPost}/>: <></>}
      <div className={stylesProfile.grid}>
       <div className={stylesProfile.gridItem}>
           <h3 className={stylesProfile.myPosts}>My Posts:</h3>

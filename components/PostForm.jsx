@@ -3,7 +3,7 @@ import stylesPostForm from '../styles/PostForm.module.css'
 import { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../context/state'
 
-const PostForm = () => {
+const PostForm = (props) => {
     
 const {user} = useContext(AppContext)
 const {currentUser} = user
@@ -168,6 +168,7 @@ useEffect(()=>{
               <p>{msg}</p>
             </div>: <></>}
             <button className={stylesPostForm.btn}>SUBMIT</button>
+            <div onClick={props.onClick} className={stylesPostForm.btn}>CANCEL</div>
         </form>
       
     </div>

@@ -4,6 +4,7 @@ import { AppContext } from '../context/state'
 import stylesHome from '../styles/Home.module.css'
 import { getSession } from '../lib/get-session'
 import NewPosts from '../components/NewPosts'
+
 export default function Home(props) {
   
 const {lang, user} = useContext(AppContext)
@@ -40,7 +41,6 @@ useEffect(()=>{
 
     <div className={stylesHome.mainContainer}>
         <div className={stylesHome.dummy} >
-          
         </div>
       
     </div>

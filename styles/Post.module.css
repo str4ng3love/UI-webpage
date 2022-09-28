@@ -57,11 +57,13 @@
     }
     .image {
         max-width: 750px;
+        max-height: 400px;
     }
 }
 @media (max-width: 800px){
     .image {
         max-width: 600px;
+        max-height: 300px;
     }
     .author {
         width: 80%;
@@ -70,6 +72,7 @@
 @media (max-width: 650px){
     .image {
         max-width: 350px;
+        max-height: 200px;
     }
     .author {
         flex-direction: column;

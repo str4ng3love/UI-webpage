@@ -16,31 +16,24 @@ const Sidebar = (props) => {
 
   return (
     <>
-        {formState ?   <PostForm /> : <></>}
+        {formState ?   <PostForm onClick={(e)=> {setForm(!formState)}}/> : <></>}
        <div className={stylesSidebar.container} >
             <aside className={stylesSidebar.sidebar}>
               {authorized ? <span onClick={()=>{setForm(!formState)}} className={stylesSidebar.create}>{currentLang===`EN`? `Add a Post`: `Dodaj Post`}<AiOutlineFileAdd /></span> : <></>}
             <div className={stylesSidebar.item}>
               <div className={stylesSidebar.itemContainer}>
-              <Link href={'/Posts'}><span className={stylesSidebar.label}>{currentLang ==='EN'? `Posts` : `Posty`}</span></Link>  
-                <span onClick={()=>setShowSubMenu(!showSubMenu)} className={stylesSidebar.label} ><AiOutlineMenu /></span> 
+              <span className={stylesSidebar.labelEmpty}>{currentLang ==='EN'? `Posts :` : `Posty :`}</span> 
               </div>
-              {
-                showSubMenu? 
                 <div className={stylesSidebar.subBox}>
-                <span onClick={props.onClick} className={stylesSidebar.label} >All</span> 
-                <span onClick={props.onClick} className={stylesSidebar.label} >News</span> 
-                <span onClick={props.onClick} className={stylesSidebar.label} >Tutorial</span> 
-                <span onClick={props.onClick} className={stylesSidebar.label} >Swag</span> 
+                <span onClick={props.onClick} className={stylesSidebar.labelInside} >All</span> 
+                <span onClick={props.onClick} className={stylesSidebar.labelInside} >News</span> 
+                <span onClick={props.onClick} className={stylesSidebar.labelInside} >Tutorial</span> 
+                <span onClick={props.onClick} className={stylesSidebar.labelInside} >Swag</span> 
                 </div>
-                : 
-                <></>
-              }
 
             </div>
  
             </aside>
-            <span className={stylesSidebar.arrow} >►</span>
        </div> 
 
     </>

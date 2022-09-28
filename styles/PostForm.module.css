@@ -1,20 +1,30 @@
 .container {
-margin: 1rem 5rem;
+    display: flex;
+    justify-content: center;
+    height: calc( 100vh - calc( var(--headerHeight) + var(--footerHeight)));
+    width: 75%;
+    background-color: var(--bgColor);
+    position: absolute;
 }
 .panel {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 .panel > * {
     padding: 0.3rem;
 }
 .form {
+    overflow-y: scroll;
+    margin: 1rem 0rem;
+    z-index: 10000;
+    background-color: black;
+    max-height: 100%;
     border: 1px solid white;
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding: 1rem;
 }
 .field {
     display: flex;
@@ -52,6 +62,12 @@ margin: 1rem 5rem;
     padding: 1rem;
     border-radius: 5px;
     font-size: 1.2rem;
+}
+.field textarea {
+    max-height: 400px;
+    max-width: 600px;
+    min-height: 200px;
+    min-width: 300px;
 }
 .btn {
     height: fit-content;
@@ -94,4 +110,14 @@ margin: 1rem 5rem;
     color: black;
     box-shadow: 0rem 0rem 1rem white;
     cursor: pointer;
+}
+@media  (max-width: 1000px ){
+    .container {
+        display: flex;
+        justify-content: center;
+        height: calc( 100vh - calc( var(--headerHeight) + var(--footerHeight)));
+        width: 100%;
+        background-color: var(--bgColor);
+        position: absolute;
+    }
 }

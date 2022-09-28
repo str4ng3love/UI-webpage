@@ -1,19 +1,28 @@
 .container {
-    margin: 1rem 0rem;
-    position: relative;
+    position: fixed;
     max-width: min-content; 
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    transform: translateX(-75%);
+    transition: transform 0.5s ease-in-out;
+}
+.container:hover {
+    transform: translateX(0%);
+}.container:hover .sidebar {
+    opacity: 1;
+}
+.container:hover .arrow {
+    opacity: 0;
 }
 .sidebar{
     border: solid white 1px;
-    min-width: max-content;
+    min-width: fit-content;
     display: flex;
     align-items: center;
     flex-direction: column;
     margin: 1rem;
     padding: 1rem;
-    opacity: 1;
+    opacity: 0;
     transition: opacity 0.25s ease-out;
 }
 .create {
@@ -78,15 +87,10 @@
 .subBox {
     display: flex;
     flex-direction: column;
+    box-shadow: 0rem 0rem 0.5rem black;
     border-radius: 5px;
 }
 .label {
-    display: flex;
-    align-items: center;
-    padding: 0.5rem;
-    border-radius: 5px;
-}
-.labelEmpty {
     display: flex;
     align-items: center;
     padding: 0.5rem;
@@ -96,15 +100,8 @@
     background-color: black;
     color:white;
 }
-.labelInside {
-    text-align: start;
-    padding: 0.5rem;
-    border-radius: 5px;
-}
-.labelInside:hover {
-    background-color: black;
-    color: white;
-
+.label:hover > .box {
+    display: flex;
 }
 .itemContainer {
     display: flex;

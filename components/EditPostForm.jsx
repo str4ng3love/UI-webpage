@@ -219,6 +219,7 @@ useEffect(()=>{
               <p>{msg}</p>
             </div>: <></>}
             <button className={stylesPostForm.btn}>SUBMIT</button>
+            <div onClick={props.onClick} className={stylesPostForm.btn}>CANCEL</div>
         </form>
       
     </div>

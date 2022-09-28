@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import getPost from '../../hooks/getPost'
-import Spinner_Mini from '../../components/Spinner_Mini'
+import Spinner from '../../components/Spinner'
 import Error from '../../components/Error'
 import Portrait from '../../components/Portrait'
 import stylesPost from '../../styles/Post.module.css'
@@ -12,7 +12,7 @@ const Post = () => {
     const { post, isLoading, isError } = getPost(pid)
 
 
-    if(isLoading) return <Spinner_Mini/>
+    if(isLoading) return <Spinner/>
     if(isError) return <Error />
     return(
         <>
@@ -28,8 +28,7 @@ const Post = () => {
            
             <span>On: {post.post.meta.createdAt.toString().replace('T', ' ').replace('Z', ' ').slice(0, -5)}</span>
           </div> 
-            
-            
+           
             {
             post.post.content ?
             
@@ -41,7 +40,7 @@ const Post = () => {
                     return <img className={stylesPost.image} key={el.id} src={el.value} />
                 }
                 if(el.label === `Video`){
-                    return <iframe key={el.id} className={stylesPost.video} width="560" height="315" src={el.value} title="Video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullscreen></iframe>
+                    return <iframe key={el.id} className={stylesPost.video} width="560" height="315" src={el.value} title="Video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                 }
                 if(el.label === `Subtitle`){
                     return <h3 className={stylesPost.subtitle} key={el.id}>{el.value}</h3>

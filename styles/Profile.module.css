@@ -2,6 +2,7 @@
     margin: var(--marginCenter);
     width: 75%;
     background-color: var(--bgColor);
+    min-height: calc( 100vh - calc(var(--footerHeight) + var(--headerHeight)));
 }
 .info {
     display: flex;

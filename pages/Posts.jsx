@@ -52,25 +52,26 @@ useEffect(()=> {
     <Meta title={ currentLang==='PL'? 'Useless Idea | Posty' : 'Useless Idea | Posts' }  />
     <div className={stylesPosts.container}>
     <Sidebar onClick={(e)=>setCat(e.target.innerHTML)} />
-    
+
     {readyPosts ? 
+ 
+    <div className={stylesPosts.gridContainer}>
+      <h2 className={stylesPosts.heading}>Viewing : {cat}</h2>
+      <div className={stylesPosts.thumbGallery}>
+        {
+          cat ==="Swag" ? readyPosts.filter(el => el.meta.category === cat).map((post)=>
+            <PostThumb key={post._id} postId={post._id} title={post.title} description={post.description} author={post.meta.author} />)
+            : cat ==="News" ?  readyPosts.filter(el => el.meta.category === cat).map((post)=>
+            <PostThumb key={post._id} postId={post._id} title={post.title} description={post.description} author={post.meta.author} />)
+            : cat ==="Tutorial" ?  readyPosts.filter(el => el.meta.category === cat).map((post)=>
+            <PostThumb key={post._id} postId={post._id} title={post.title} description={post.description} author={post.meta.author} />)
+            : readyPosts.map((post)=>
+            <PostThumb key={post._id} postId={post._id} title={post.title} description={post.description} author={post.meta.author} />)
+      }
+          
 
-    <div className={stylesPosts.thumbGallery}>
-      
-      {
-        cat ==="Swag" ? readyPosts.filter(el => el.meta.category === cat).map((post)=>
-          <PostThumb key={post._id} postId={post._id} title={post.title} description={post.description} author={post.meta.author} />)
-          : cat ==="News" ?  readyPosts.filter(el => el.meta.category === cat).map((post)=>
-          <PostThumb key={post._id} postId={post._id} title={post.title} description={post.description} author={post.meta.author} />)
-          : cat ==="Tutorial" ?  readyPosts.filter(el => el.meta.category === cat).map((post)=>
-          <PostThumb key={post._id} postId={post._id} title={post.title} description={post.description} author={post.meta.author} />)
-          : readyPosts.map((post)=>
-          <PostThumb key={post._id} postId={post._id} title={post.title} description={post.description} author={post.meta.author} />)
-    }
-        
-
-    </div> 
-      
+      </div> 
+    </div>
    
     : <h2 className={stylesPosts.heading}>{currentLang === `EN` ? `Nothing posted yet.`: `Brak publikacji.`}</h2>}
     
