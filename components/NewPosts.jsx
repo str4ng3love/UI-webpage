@@ -4,14 +4,18 @@ import PostCard from "./PostCard"
 import Spinner_Mini from '../components/Spinner_Mini'
 import Error from '../components/Error'
 import stylesNewPosts from '../styles/NewPosts.module.css'
+import { useContext } from "react"
+import { AppWrapper } from "../context/state"
 const NewPosts = () => {
+const {lang} = useContext(AppWrapper)
+const {currentLang} = lang
 const { data, error } = useSWR(`/api/posts/postNewest`, fetcher);
 if(error) return <Error />
 return (
 <div className={stylesNewPosts.postsContainer}>
     <div className={stylesNewPosts.headings}>
-        <h2 className={stylesNewPosts.headingS}>Newest Posts</h2>
-        <h3>Some kind of text explaining what lies below.</h3>
+        <h2 className={stylesNewPosts.headingS}>{currentLang === `EN` ? 'Newest Posts':'Najnowsze Posty'}</h2>
+        <h3>{currentLang === `EN` ? 'Check out our newests stuff!':'Sprawdź co dodaliśmy ostatnio!'}.</h3>
     </div>
   
     <div className={stylesNewPosts.newPosts}>

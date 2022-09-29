@@ -63,10 +63,6 @@ if(currentUser){
              <Portrait id={currentUser.charId}/>
             </div>
             <div className={stylesUser.item}>
-            {parsing ? <p>you rock</p> : <p>sorry, you suck</p>}
-            
-            </div>
-            <div className={stylesUser.item}>
               <p onClick={async()=>{
                 fetch('api/logout')
                 setUser()}}>Logout</p>

@@ -56,7 +56,7 @@ useEffect(()=> {
     {readyPosts ? 
  
     <div className={stylesPosts.gridContainer}>
-      <h2 className={stylesPosts.heading}>Viewing : {cat}</h2>
+      <h2 className={stylesPosts.heading}>{ currentLang==='PL'? 'Widisz' : 'Viewing' } : {cat}</h2>
       <div className={stylesPosts.thumbGallery}>
         {
           cat ==="Swag" ? readyPosts.filter(el => el.meta.category === cat).map((post)=>
