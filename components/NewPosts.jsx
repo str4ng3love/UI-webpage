@@ -5,9 +5,9 @@ import Spinner_Mini from '../components/Spinner_Mini'
 import Error from '../components/Error'
 import stylesNewPosts from '../styles/NewPosts.module.css'
 import { useContext } from "react"
-import { AppWrapper } from "../context/state"
+import { AppContext } from "../context/state"
 const NewPosts = () => {
-const {lang} = useContext(AppWrapper)
+const {lang} = useContext(AppContext)
 const {currentLang} = lang
 const { data, error } = useSWR(`/api/posts/postNewest`, fetcher);
 if(error) return <Error />
