@@ -115,7 +115,8 @@ const handleSubmit = async () => {
         content,
         meta: {
             author: currentUser.charName,
-            createdAt: post.meta.createdAt,
+            authorId: post.meta.authorID,
+            createdAt: post.meta.createdAt, 
             scope,
             category
         }

@@ -23,6 +23,7 @@ const Post = () => {
             <div className={stylesPost.author}>
                 <div className={stylesPost.user}>
                 <span>by {post.post.meta.author}</span>
+                
                 <Portrait id={post.post.meta.authorId} />
                 </div>
            
