@@ -57,6 +57,7 @@ export default async function handler (req, res) {
                     let post = await Post.findByIdAndUpdate(req.body.id, {title : req.body.title, excerpt: req.body.excerpt, content: req.body.content, meta:{
                         scope: req.body.meta.scope,
                         author: req.body.meta.author,
+                        authorId: req.body.meta.authorId,
                         createdAt: req.body.meta.createdAt,
                         updated: Date.now() + 7200000
                     }})
